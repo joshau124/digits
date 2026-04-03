@@ -1,6 +1,6 @@
 'use server';
 
-import { Condition } from '@prisma/client';
+import { Condition, Contact } from '@prisma/client';
 import { Stuff } from '@prisma/client';
 import { hash } from 'bcrypt';
 import { redirect } from 'next/navigation';
@@ -92,4 +92,50 @@ export async function changePassword(credentials: { email: string; password: str
       password,
     },
   });
+}
+
+/**
+ * Adds a contact
+ * @param contact,
+ */
+export async function addContact(contact: {
+  firstName: string,
+  lastName: string,
+  address: string,
+  image: string,
+  description: string,
+  owner: string
+}) {
+  await prisma.contact.create({
+    data: {
+      firstName: contact.firstName,
+      lastName: contact.lastName,
+      address: contact.address,
+      image: contact.image,
+      description: contact.description,
+      owner: contact.owner
+    },
+  });
+  redirect('/list');
+}
+/**
+ * Edits contacts
+ *  @param contact,
+ */
+
+export async function editContact(contact: Contact) {
+  // console.log(`editStuff data: ${JSON.stringify(stuff, null, 2)}`);
+  await prisma.contact.update({
+    where: { id: contact.id },
+    data: {
+      firstName: contact.firstName,
+      lastName: contact.lastName,
+      address: contact.address,
+      image: contact.image,
+      description: contact.description,
+      owner: contact.owner
+    },
+  });
+  // After updating, redirect to the list page
+  redirect('/list');
 }
