@@ -4,7 +4,7 @@ import { Card, Image, ListGroup } from 'react-bootstrap';
 import { Contact, Note } from '@prisma/client';
 import Link from 'next/link';
 
-/* Renders a single row in the List Stuff table. See list/page.tsx. */
+/* Renders a single row in the Contact table. See list/page.tsx. */
 const ContactCardAdmin = ({ contact, notes }: { contact: Contact; notes: Note[] }) => {
   return(
   <Card className='h-100'>

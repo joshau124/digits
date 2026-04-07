@@ -2,7 +2,7 @@
 
 import { Contact } from '@prisma/client';
 import { useSession } from 'next-auth/react'; // v5 compatible
-import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import swal from 'sweetalert';
@@ -21,7 +21,6 @@ const onSubmit = async (data: { note: string; contactId: number; owner: string; 
 
 const AddNoteForm = ({ contact }: { contact: Contact }) => {
   const { data: session, status } = useSession();
-  // console.log('AddStuffForm', status, session);
   const currentUser = session?.user?.email || '';
   const {
     register,
