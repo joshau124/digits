@@ -479,7 +479,7 @@ The workflow uses a PostgreSQL service for testing and sets environment variable
 For details, see the [`ci.yml` workflow file](.github/workflows/ci.yml).
 
 <!--
-## Screencasts
+## Screencast
 
 For more information about this system, please watch one or more of the following screencasts. Note that the current source code might differ slightly from the code in these screencasts, but the changes should be very minor.
 

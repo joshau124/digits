@@ -5,7 +5,7 @@ import { Contact, Note } from '@prisma/client';
 import ContactCard from '@/components/ContactCard';
 import { prisma } from '@/lib/prisma';
 
-/** Render a list of stuff for the logged in user. */
+/** Render a list of contacts for the logged in user. */
 const ListPage = async () => {
   // Protect the page, only logged in users can access it.
   const session = await auth();
